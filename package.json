@@ -1,0 +1,12 @@
+{
+  "name": "doctor-appointment-management",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Doctor Appointment Management System",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "db:push": "npm --prefix backend exec prisma db push",
+    "db:seed": "npm --prefix backend exec tsx prisma/seed.ts"
+  }
+}
