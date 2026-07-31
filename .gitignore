@@ -52,6 +52,11 @@ Thumbs.db
 backend/prisma/*.db
 backend/prisma/*.db-journal
 
+# Test coverage
+coverage/
+backend/coverage/
+frontend/coverage/
+
 # Misc
 *.pem
 .vercel

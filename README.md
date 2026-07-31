@@ -2,6 +2,15 @@
 
 Full-stack clinic platform for patients, doctors, staff, and admins.
 
+## Documentation
+
+Full project docs live in [`docs/`](./docs/README.md):
+
+- Architecture, database, API reference
+- Implementation & frontend guides
+- Security, setup/deployment, workflows
+- Roles/permissions, testing strategy & test case catalog
+
 ## Stack
 
 | Layer | Tech |
@@ -10,6 +19,7 @@ Full-stack clinic platform for patients, doctors, staff, and admins.
 | Backend | Node.js + Express.js + TypeScript |
 | Database | PostgreSQL + Prisma ORM |
 | Auth | JWT access + refresh tokens, bcrypt, RBAC |
+| Tests | Vitest (+ coverage) |
 
 ## Project structure
 
@@ -17,24 +27,14 @@ Full-stack clinic platform for patients, doctors, staff, and admins.
 Doctor appointment Management/
 ├── backend/                 # Express API
 │   ├── prisma/              # schema + seed
-│   └── src/
-│       ├── controllers/
-│       ├── services/
-│       ├── repositories/    # (services own Prisma access; ready to split)
-│       ├── middlewares/
-│       ├── validators/
-│       ├── routes/
-│       ├── config/
-│       └── server.ts
-└── frontend/                # Next.js UI
-    └── src/
-        ├── app/             # routes (public + role dashboards)
-        ├── components/
-        ├── contexts/
-        ├── services/
-        ├── lib/
-        ├── types/
-        └── config/
+│   ├── src/
+│   └── tests/               # unit + HTTP smoke tests
+├── frontend/                # Next.js UI
+│   ├── src/
+│   └── tests/
+├── docs/                    # Architecture & project documentation
+├── package.json
+└── README.md
 ```
 
 ## Prerequisites
@@ -45,8 +45,6 @@ Doctor appointment Management/
 ## Setup
 
 ### 1. Database
-
-Create DB (or let Prisma create it on push):
 
 ```
 DATABASE_URL=postgresql://postgres:12345@localhost:5432/doctor_appointment?schema=public
@@ -76,6 +74,20 @@ npm run dev
 
 App: http://localhost:3000
 
+## Tests
+
+```bash
+# from root
+npm test
+npm run test:coverage
+
+# or per package
+cd backend && npm test && npm run test:coverage
+cd frontend && npm test && npm run test:coverage
+```
+
+See [`docs/11-testing-strategy.md`](./docs/11-testing-strategy.md) and [`docs/12-test-cases.md`](./docs/12-test-cases.md).
+
 ## Demo accounts
 
 Password for all: `Password@123`
@@ -94,23 +106,13 @@ Also seeded: `cardio@doctorcare.local`, `derm@doctorcare.local`, `patient2@docto
 - Auth: register (patient), login, logout, refresh, forgot-password stub, JWT RBAC
 - Public: home, doctors directory, doctor detail, privacy/terms/contact
 - Patient: dashboard, book slots, appointments, cancel, prescriptions, pay bills, profile, notifications
-- Doctor: dashboard, today’s queue, accept/reject/check-in, prescribe, patients, availability
+- Doctor: dashboard, today's queue, accept/reject/check-in, prescribe, patients, availability
 - Staff: dashboard, appointments, walk-in registration, billing/invoices, live queue
 - Admin: dashboard analytics, doctors, patients, staff, appointments, departments, billing reports
 
 ## API overview
 
-Base: `/api/v1`
-
-- `POST /auth/register|login|refresh|logout|forgot-password`
-- `GET /auth/me`
-- `GET|POST|PUT|DELETE /doctors`, `GET /doctors/:id/slots`
-- `GET|POST|PUT|DELETE /patients`
-- `GET|POST|PUT|DELETE /appointments`, `GET /appointments/queue/today`
-- `POST|GET|PUT /prescriptions`
-- `GET|POST /bills`, `POST /bills/:id/pay`
-- `GET|POST /departments`, `/staff`, `/reviews`
-- `GET /notifications`, `GET /dashboard`, `GET /audit-logs`
+Base: `/api/v1` — full reference in [`docs/04-api-reference.md`](./docs/04-api-reference.md)
 
 ## Notes
 

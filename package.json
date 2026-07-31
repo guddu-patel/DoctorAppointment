@@ -6,6 +6,8 @@
   "scripts": {
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
+    "test": "npm --prefix backend test && npm --prefix frontend test",
+    "test:coverage": "npm --prefix backend run test:coverage && npm --prefix frontend run test:coverage",
     "db:push": "npm --prefix backend exec prisma db push",
     "db:seed": "npm --prefix backend exec tsx prisma/seed.ts"
   }
