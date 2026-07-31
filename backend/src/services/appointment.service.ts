@@ -6,11 +6,11 @@ import {
   ForbiddenError,
   NotFoundError,
 } from '../exceptions/AppError';
-import { minutesToTime, timeToMinutes } from '../utils/helpers';
 import { auditService } from './audit.service';
 import { notificationService } from './notification.service';
 import { doctorService } from './doctor.service';
 import { AuthUser } from '../types';
+import { assertAppointmentStatusChange } from '../domain/appointment-status';
 
 const appointmentInclude = {
   doctor: {
@@ -338,21 +338,7 @@ export class AppointmentService {
     next: AppointmentStatus,
     user: AuthUser
   ) {
-    if (['SUPER_ADMIN', 'ADMIN', 'STAFF'].includes(user.role)) return;
-
-    if (user.role === 'DOCTOR') {
-      const allowed: AppointmentStatus[] = ['CONFIRMED', 'REJECTED', 'COMPLETED', 'NO_SHOW', 'CHECKED_IN'];
-      if (!allowed.includes(next)) throw new ForbiddenError('Doctors cannot set this status');
-      return;
-    }
-
-    if (user.role === 'PATIENT') {
-      if (next !== 'CANCELLED') throw new ForbiddenError('Patients can only cancel appointments');
-      if (['COMPLETED', 'CANCELLED', 'REJECTED'].includes(current)) {
-        throw new BadRequestError('Cannot cancel this appointment');
-      }
-      return;
-    }
+    assertAppointmentStatusChange(current, next, user.role);
   }
 }
 

@@ -71,6 +71,10 @@ stateDiagram-v2
   NO_SHOW --> [*]
 ```
 
+### Status ownership
+
+All status changes go through `backend/src/domain/appointment-status.ts` (`assertAppointmentStatusChange`). Controllers/services must not invent alternate transition rules. Admin/Super Admin may override for operational recovery; other roles are bound to the transition graph + role permissions.
+
 ## Cross-cutting concerns
 
 | Concern | Implementation |

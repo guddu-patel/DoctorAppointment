@@ -15,6 +15,7 @@ export default defineConfig({
         'src/validators/**/*.ts',
         'src/exceptions/**/*.ts',
         'src/responses/**/*.ts',
+        'src/domain/**/*.ts',
       ],
       thresholds: {
         statements: 85,

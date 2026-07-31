@@ -106,10 +106,20 @@ Also seeded: `cardio@doctorcare.local`, `derm@doctorcare.local`, `patient2@docto
 | Roles & permissions    | [`10-roles-and-permissions.md`](./10-roles-and-permissions.md) |
 | Testing strategy       | [`11-testing-strategy.md`](./11-testing-strategy.md)           |
 | Test case catalog      | [`12-test-cases.md`](./12-test-cases.md)                       |
-| Contributing           | [`13-contributing.md`](./13-contributing.md)                   |
+| Test results           | [`test-results.md`](./test-results.md)                         |
+| Tool workflow (Part A) | [`tool-workflow.md`](./tool-workflow.md)                       |
+| Requirements analysis  | [`requirements-analysis.md`](./requirements-analysis.md)       |
+| Acceptance criteria    | [`acceptance-criteria.md`](./acceptance-criteria.md)           |
+| Prompt history         | [`prompt-history.md`](./prompt-history.md)                     |
+| Debugging notes        | [`debugging-notes.md`](./debugging-notes.md)                   |
+| Code review            | [`code-review.md`](./code-review.md)                           |
+| Reflection             | [`reflection.md`](./reflection.md)                             |
 | Chat history           | [`chat-history.md`](./chat-history.md)                         |
+| Contributing           | [`13-contributing.md`](./13-contributing.md)                   |
 | Root README            | [`../README.md`](../README.md)                                 |
 | Automated tests        | `backend/tests/`, `frontend/tests/`                            |
+| Cursor workflow        | [`../tool-specific/cursor-workflow/`](../tool-specific/cursor-workflow/) |
+| AI prompts             | [`../ai-prompts/`](../ai-prompts/)                             |
 
 ## Contact for reviewers
 
