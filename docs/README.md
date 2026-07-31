@@ -7,6 +7,7 @@ Central documentation for the **Doctor Appointment Management System**.
 | Doc | Description |
 |-----|-------------|
 | [Candidate Information](./candidate-info.md) | Author profile, repo links, setup & navigation |
+| [Chat History](./chat-history.md) | Exported Cursor build-session conversation |
 | [01 — Project Overview](./01-project-overview.md) | Purpose, scope, goals, tech stack |
 | [02 — Architecture](./02-architecture.md) | System design, layers, data flow |
 | [03 — Database Design](./03-database-design.md) | Prisma schema, ER relationships, enums |

@@ -107,6 +107,7 @@ Also seeded: `cardio@doctorcare.local`, `derm@doctorcare.local`, `patient2@docto
 | Testing strategy       | [`11-testing-strategy.md`](./11-testing-strategy.md)           |
 | Test case catalog      | [`12-test-cases.md`](./12-test-cases.md)                       |
 | Contributing           | [`13-contributing.md`](./13-contributing.md)                   |
+| Chat history           | [`chat-history.md`](./chat-history.md)                         |
 | Root README            | [`../README.md`](../README.md)                                 |
 | Automated tests        | `backend/tests/`, `frontend/tests/`                            |
 
